@@ -6,10 +6,11 @@ use Monolog\ErrorHandler;
 use Monolog\Formatter\JsonFormatter;
 use Monolog\Handler\ErrorLogHandler;
 use Monolog\Logger;
+use MVF\SystemLogger\HostLogInterface;
 use Symfony\Component\Console\Application;
 use function Functional\invoke;
 
-class LogCapsule
+class LogCapsule implements HostLogInterface
 {
     const ERROR = 'ERROR';
     const WARNING = 'WARNING';
@@ -75,7 +76,7 @@ class LogCapsule
      *
      * @return \Exception|null
      */
-    public function info(string $message)
+    public function info($message)
     {
         return $this->write(static::INFO, $message);
     }
@@ -87,7 +88,7 @@ class LogCapsule
      *
      * @return \Exception|null
      */
-    public function warning(string $message)
+    public function warning($message)
     {
         return $this->write(static::WARNING, $message);
     }
@@ -99,7 +100,7 @@ class LogCapsule
      *
      * @return \Exception|null
      */
-    public function error(string $message)
+    public function error($message)
     {
         return $this->write(static::ERROR, $message);
     }

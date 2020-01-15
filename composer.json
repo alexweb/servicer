@@ -26,6 +26,7 @@
     "require-dev": {
         "symfony/var-dumper": "^4.2",
         "codeception/codeception": "^2.5",
-        "codeception/aspect-mock": "^3.0"
+        "codeception/aspect-mock": "^3.0",
+        "mvf-tech/system_logger": "^3.0"
     }
 }
